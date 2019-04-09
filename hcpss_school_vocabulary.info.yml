@@ -1,0 +1,12 @@
+name: 'HCPSS School Vocabulary'
+description: 'Provides a taxonomy vocabulary for HCPSS schools.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - options
+  - path
+  - taxonomy
+  - text
+version: 8.x-1.0
+package: HCPSS

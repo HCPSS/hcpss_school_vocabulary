@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Schools
+vid: schools
+description: 'HCPSS schools and education centers.'
+hierarchy: 0
+weight: 0

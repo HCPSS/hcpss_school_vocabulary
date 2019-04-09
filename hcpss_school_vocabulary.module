@@ -1,0 +1,42 @@
+<?php
+
+use Drupal\hcpss_school_vocabulary\SchoolQuery;
+use Drupal\taxonomy\Entity\Term;
+
+function hcpss_school_vocabulary_install() {
+  $result = _hcpss_school_vocabulary_populate_schools();
+
+  \Drupal::messenger()->addMessage(t(':new school terms created, :updated updated.', [
+    ':new'     => $result[SAVED_NEW],
+    ':updated' => $result[SAVED_UPDATED],
+  ]));
+}
+
+/**
+ * Populate school terms from the school api.
+ */
+function _hcpss_school_vocabulary_populate_schools() {
+  $schools_data = SchoolQuery::getData();
+  $results = [SAVED_NEW => 0, SAVED_UPDATED => 0];
+
+  foreach ($schools_data as $school_data) {
+    $tids = \Drupal::entityQuery('taxonomy_term')
+      ->condition('vid', 'schools')
+      ->condition('field_acronym', $school_data['acronym'])
+      ->execute();
+
+    $term = !empty($tids)
+      ? Term::load(array_shift($tids))
+      : Term::create(['vid' => 'schools']);
+
+    $term->setName($school_data['full_name']);
+    $term->set('field_acronym',     $school_data['acronym']);
+    $term->set('field_principal',   $school_data['principal']);
+    $term->set('field_school_type', $school_data['level']);
+
+    $result = $term->save();
+    $results[$result]++;
+  }
+
+  return $results;
+}

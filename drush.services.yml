@@ -1,0 +1,5 @@
+services:
+  hcpss_school_vocabulary.commands:
+    class: \Drupal\hcpss_school_vocabulary\Commands\HcpssSchoolVocabularyCommands
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_acronym
+    - taxonomy.vocabulary.schools
+id: taxonomy_term.schools.field_acronym
+field_name: field_acronym
+entity_type: taxonomy_term
+bundle: schools
+label: Acronym
+description: '3 - 5 letter canonical acronym.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
