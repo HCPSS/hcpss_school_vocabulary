@@ -3,35 +3,34 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.schools.field_acronym
+    - field.field.taxonomy_term.schools.field_administrative_cluster
     - field.field.taxonomy_term.schools.field_principal
     - field.field.taxonomy_term.schools.field_school_type
     - taxonomy.vocabulary.schools
-  module:
-    - path
-    - text
+_core:
+  default_config_hash: TxOxyk6bfxOTTI0SOE87ua_gYF5Fu94G3F_Nk_p7210
 id: taxonomy_term.schools.default
 targetEntityType: taxonomy_term
 bundle: schools
 mode: default
 content:
-  description:
-    type: text_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_acronym:
-    weight: 31
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_administrative_cluster:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_principal:
-    weight: 32
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -39,23 +38,19 @@ content:
     type: string_textfield
     region: content
   field_school_type:
-    weight: 33
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  description: true
+  path: true

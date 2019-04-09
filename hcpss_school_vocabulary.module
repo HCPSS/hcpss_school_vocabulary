@@ -30,9 +30,10 @@ function _hcpss_school_vocabulary_populate_schools() {
       : Term::create(['vid' => 'schools']);
 
     $term->setName($school_data['full_name']);
-    $term->set('field_acronym',     $school_data['acronym']);
-    $term->set('field_principal',   $school_data['principal']);
-    $term->set('field_school_type', $school_data['level']);
+    $term->set('field_acronym',                $school_data['acronym']);
+    $term->set('field_principal',              $school_data['principal']);
+    $term->set('field_school_type',            $school_data['level']);
+    $term->set('field_administrative_cluster', $school_data['administrative_cluster']['cluster']);
 
     $result = $term->save();
     $results[$result]++;

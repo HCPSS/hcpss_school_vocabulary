@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_administrative_cluster
+    - taxonomy.vocabulary.schools
+id: taxonomy_term.schools.field_administrative_cluster
+field_name: field_administrative_cluster
+entity_type: taxonomy_term
+bundle: schools
+label: 'Administrative Cluster'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
