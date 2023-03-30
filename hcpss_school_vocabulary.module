@@ -14,6 +14,7 @@ function _hcpss_school_vocabulary_populate_schools() {
     $tids = \Drupal::entityQuery('taxonomy_term')
       ->condition('vid', 'schools')
       ->condition('field_acronym', $school_data['acronym'])
+      ->accessCheck(FALSE)
       ->execute();
 
     $term = !empty($tids)
