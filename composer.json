@@ -1,7 +1,7 @@
 {
-    "name": "org/hcpss_school_vocabulary",
-    "description": "This extension provides new commands for Drush.",
-    "type": "drupal-drush",
+    "name": "drupal/hcpss_school_vocabulary",
+    "description": "Provide HCPSS schools taxonomy vocabulary.",
+    "type": "drupal-module",
     "authors": [
         {
             "name": "Brendan Anderson",
@@ -9,13 +9,6 @@
         }
     ],
     "require": {
-        "php": ">=5.6.0"
-    },
-    "extra": {
-        "drush": {
-            "services": {
-                "drush.services.yml": "^9"
-            }
-        }
+        "php": ">=8.0.0"
     }
 }
