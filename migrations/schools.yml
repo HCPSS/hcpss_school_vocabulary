@@ -1,0 +1,35 @@
+id: schools
+label: 'School migrations'
+migration_tags:
+  - hcpss
+  - taxonomy_term
+migration_dependencies: []
+source:
+  plugin: graphql
+  endpoint: https://api.hocoschools.org/graphql
+  data_key: items
+  query:
+    schools:
+      arguments:
+        limit: 100
+      fields:
+        - items:
+          - id
+          - acronym
+          - name
+          - level
+          - principal
+          - administrativeCluster:
+              - cluster
+  ids:
+    id:
+      type: int
+process:
+  name: name
+  field_acronym: acronym
+  field_principal: principal
+  field_school_type: level
+  field_administrative_cluster: administrativeCluster/cluster
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: schools
