@@ -8,5 +8,6 @@ dependencies:
   - path
   - taxonomy
   - text
+  - migrate_source_graphql
 version: 8.x-1.0
 package: HCPSS
