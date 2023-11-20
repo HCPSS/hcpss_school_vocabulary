@@ -28,6 +28,9 @@ source:
     id:
       type: int
 process:
+  tid:
+    plugin: acronym_to_school_id
+    source: acronym
   name: name
   field_acronym: acronym
   field_principal: principal
