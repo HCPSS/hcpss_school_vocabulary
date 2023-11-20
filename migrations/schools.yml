@@ -3,9 +3,12 @@ label: 'School migrations'
 migration_tags:
   - hcpss
   - taxonomy_term
+  - schools
+  - ongoing
 migration_dependencies: []
 source:
   plugin: graphql
+  track_changes: true
   endpoint: https://api.hocoschools.org/graphql
   data_key: items
   query:
