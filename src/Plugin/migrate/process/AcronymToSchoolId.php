@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ikonn_default_content\Plugin\migrate\process;
+namespace Drupal\hcpss_school_vocabulary\Plugin\migrate\process;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   source: acronym
  * @endcode
  */
-class SchoolsByAcronym extends ProcessPluginBase implements ContainerFactoryPluginInterface {
+class AcronymToSchoolId extends ProcessPluginBase implements ContainerFactoryPluginInterface {
 
   /**
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
@@ -51,13 +51,10 @@ class SchoolsByAcronym extends ProcessPluginBase implements ContainerFactoryPlug
       ->getStorage('taxonomy_term')
       ->getQuery()
       ->condition('vid', 'schools')
-      ->condition('status', TRUE)
+      ->condition('field_acronym', $value)
       ->accessCheck(FALSE)
       ->execute();
 
-    return array_reduce($ids, function ($carry, $item) {
-      $carry[] = ['target_id' => $item];
-      return $carry;
-    });
+    return !empty($ids) ? reset($ids) : NULL;
   }
 }
