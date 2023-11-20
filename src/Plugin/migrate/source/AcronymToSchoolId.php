@@ -11,13 +11,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @MigrateProcessPlugin(
- *   id = "schools_by_acronym",
- *   handle_multiples = TRUE
+ *   id = "acronym_to_school_id",
+ *   handle_multiples = FALSE
  * )
  *
  * @code
  * field_parts:
- *   plugin: schools_by_acronym
+ *   plugin: acronym_to_school_id
  *   source: acronym
  * @endcode
  */
