@@ -26,7 +26,7 @@ source:
               - cluster
   ids:
     id:
-      type: int
+      type: integer
 process:
   tid:
     plugin: acronym_to_school_id
