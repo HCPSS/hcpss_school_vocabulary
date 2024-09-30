@@ -1,7 +1,7 @@
 name: 'HCPSS School Vocabulary'
 description: 'Provides a taxonomy vocabulary for HCPSS schools.'
 type: module
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 dependencies:
   - field
   - options
