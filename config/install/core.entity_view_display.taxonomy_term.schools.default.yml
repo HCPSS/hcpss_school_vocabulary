@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.schools.field_acronym
-    - field.field.taxonomy_term.schools.field_administrative_cluster
     - field.field.taxonomy_term.schools.field_principal
     - field.field.taxonomy_term.schools.field_school_type
     - taxonomy.vocabulary.schools
@@ -24,15 +23,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_administrative_cluster:
-    type: number_integer
-    weight: 3
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
   field_principal:
     weight: 2
     label: above

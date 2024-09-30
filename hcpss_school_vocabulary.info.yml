@@ -9,5 +9,6 @@ dependencies:
   - taxonomy
   - text
   - migrate_source_graphql
+  - migrate_plus
 version: 8.x-1.0
 package: HCPSS

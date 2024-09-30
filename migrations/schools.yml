@@ -7,35 +7,38 @@ migration_tags:
   - ongoing
 migration_dependencies: []
 source:
-  plugin: graphql
+  plugin: url
   track_changes: true
-  endpoint: https://api.hocoschools.org/graphql
-  data_key: items
-  query:
-    schools:
-      arguments:
-        limit: 100
-      fields:
-        - items:
-          - id
-          - acronym
-          - name
-          - level
-          - principal
-          - administrativeCluster:
-              - cluster
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'https://api.hocoschools.org/api/node/school'
+    - 'https://api.hocoschools.org/api/node/school?page%5Boffset%5D=50&page%5Blimit%5D=50'
+  item_selector: '/data'
+  fields:
+    - name: id
+      label: ID
+      selector: id
+    - name: acronym
+      label: Acronym
+      selector: attributes/field_acronym
+    - name: name
+      label: Name
+      selector: attributes/title
+    - name: level
+      label: Level
+      selector: attributes/field_level
+    - name: principal
+      label: Principal
+      selector: attributes/field_principal
   ids:
     id:
-      type: integer
+      type: string
 process:
-  tid:
-    plugin: acronym_to_school_id
-    source: acronym
   name: name
   field_acronym: acronym
   field_principal: principal
   field_school_type: level
-  field_administrative_cluster: administrativeCluster/cluster
 destination:
   plugin: 'entity:taxonomy_term'
   default_bundle: schools

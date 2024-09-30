@@ -10,6 +10,6 @@
     ],
     "require": {
         "php": ">=8.0.0",
-        "drupal/migrate_source_graphql": "^2.0"
+        "drupal/migrate_plus": "^6.0"
     }
 }
